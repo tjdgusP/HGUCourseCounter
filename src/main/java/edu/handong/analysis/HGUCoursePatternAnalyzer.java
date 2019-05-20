@@ -54,9 +54,23 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
 		
-		// TODO: Implement this method
+		HashMap<String,Student> students = new HashMap<String,Student>();
 		
-		return null; // do not forget to return a proper variable.
+		for(String line:lines) {
+			
+			Course course = new Course(line);
+			String studentId = course.getStudentId();
+					
+			if(students.containsKey(studentId)) { //만약 동일 ID 있으면 course더하기
+				students.get(studentId).addCourse(course);
+			}
+			else { // 동일 ID없으면 새로 Student 만들기
+				Student student = new Student(studentId);
+				student.addCourse(course);
+				students.put(studentId,student);
+			}	
+		}
+		return students;
 	}
 
 	/**
