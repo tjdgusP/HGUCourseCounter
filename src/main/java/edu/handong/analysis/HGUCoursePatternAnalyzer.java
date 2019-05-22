@@ -80,7 +80,7 @@ public class HGUCoursePatternAnalyzer {
      * 0001,14,2,8
 	 * ....
 	 * 
-	 * 0001,14,1,9 => this means, 0001 student registered 14 semeters in total. In the first semeter (1), the student took 9 courses.
+	 * 0001,14,1,9 => this means, 0001 student registered 14 semesters in total. In the first semester (1), the student took 9 courses.
 	 * 
 	 * 
 	 * @param sortedStudents
@@ -88,8 +88,24 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
 		
-		// TODO: Implement this method
+		ArrayList<String> linesToBeSaved = new ArrayList<String>();
 		
-		return null; // do not forget to return a proper variable.
+		for(String studentId : sortedStudents.keySet()) { //?
+			
+			Student student = sortedStudents.get(studentId);
+			HashMap<String,Integer> semesterByYearAndSemester = new HashMap<String,Integer>();
+			semesterByYearAndSemester = sortedStudents.get(studentId).getSemesterByYearAndSemester();
+			
+			int totalNumOfSemester = semesterByYearAndSemester.size();
+			
+			for(int i=1; i<= totalNumOfSemester; i++) {
+				
+				int NumOfCourseTaken = student.getNumCourseInNthSemester(i);
+				String line = studentId + "," + totalNumOfSemester + "," + i + NumOfCourseTaken;
+				linesToBeSaved.add(line);
+			}
+		}
+		
+		return linesToBeSaved; // do not forget to return a proper variable.
 	}
 }

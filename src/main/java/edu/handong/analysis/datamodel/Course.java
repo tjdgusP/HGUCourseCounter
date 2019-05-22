@@ -13,7 +13,7 @@ public class Course {
 	private int semesterCourseTaken;
 	
 	public Course(String line) {
-		String[] values = line.split(",");
+		String[] values = line.trim().split(",");
 		studentId = values[0];
 		yearMonthGraduated = values[1];
 		firstMajor = values[2];
@@ -27,5 +27,15 @@ public class Course {
 	
 	public String getStudentId() {
 		return studentId;
+	}
+	public int getYearTaken() {
+		return yearTaken;
+	}
+	public int getSemesterCourseTaken() {
+		return semesterCourseTaken;
+	}
+	public String getCourseTakenKey() {
+		String courseTakenKey = Integer.toString(yearTaken) + "-" + Integer.toString(semesterCourseTaken);
+		return courseTakenKey;
 	}
 }

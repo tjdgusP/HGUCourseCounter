@@ -3,8 +3,6 @@ package edu.handong.analysise.utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.handong.analysis.datamodel.Student;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -19,11 +17,12 @@ public class Utils {
 			System.out.println("The file path does not exist. Please check your CLI argument!");
 			System.exit(0);
 		}
-	
+		
+		String line = inputStream.nextLine(); //deleting first line
 		ArrayList<String> lines = new ArrayList<String>();
 		
 		while(inputStream.hasNextLine()) {
-			String line = inputStream.nextLine();
+			line = inputStream.nextLine();
 			lines.add(line);
 		}
 		inputStream.close();
