@@ -101,7 +101,7 @@ public class HGUCoursePatternAnalyzer {
 			for(int i=1; i<= totalNumOfSemester; i++) {
 				
 				int NumOfCourseTaken = student.getNumCourseInNthSemester(i);
-				String line = studentId + "," + totalNumOfSemester + "," + i + NumOfCourseTaken;
+				String line = studentId + "," + totalNumOfSemester + "," + i +","+ NumOfCourseTaken;
 				linesToBeSaved.add(line);
 			}
 		}

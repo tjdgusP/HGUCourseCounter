@@ -13,7 +13,7 @@ public class Course {
 	private int semesterCourseTaken;
 	
 	public Course(String line) {
-		String[] values = line.trim().split(",");
+		String[] values = line.split(",");
 		studentId = values[0];
 		yearMonthGraduated = values[1];
 		firstMajor = values[2];
@@ -21,8 +21,8 @@ public class Course {
 		courseCode = values[4];
 		courseName = values[5];
 		courseCredit = values[6];
-		yearTaken = Integer.parseInt(values[7]);
-		semesterCourseTaken = Integer.parseInt(values[8]);
+		yearTaken = Integer.parseInt(values[7].trim());
+		semesterCourseTaken = Integer.parseInt(values[8].trim());
 	}
 	
 	public String getStudentId() {
