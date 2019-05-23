@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 
 public class Utils {
 	
-	public static ArrayList<String>getLines(String file, boolean removeHeader){
+	public static ArrayList<String> getLines(String file, boolean removeHeader){
 		Scanner inputStream = null;
 		try {
 			inputStream = new Scanner(new File(file));
