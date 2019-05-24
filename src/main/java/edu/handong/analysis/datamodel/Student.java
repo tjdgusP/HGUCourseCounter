@@ -47,9 +47,5 @@ public class Student {
 		}
 		return num;
 	}
-	
-	public String getStudentId() {
-		return studentId;
-	}
 
 }
