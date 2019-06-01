@@ -1,7 +1,5 @@
 package edu.handong.analysis.datamodel;
 
-import java.util.List;
-
 import org.apache.commons.csv.CSVRecord;
 
 public class Course {

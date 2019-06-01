@@ -183,7 +183,6 @@ public class HGUCoursePatternAnalyzer {
 	}
 	
 	
-	
 	private boolean parseOptions(Options options, String[] args) {
 		CommandLineParser parser = new DefaultParser();
 
