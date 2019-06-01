@@ -24,7 +24,6 @@ public class Student {
 		int num=1; //count semester
 		for(Course course: courseTaken) {
 			if(course.getYearTaken()>=startyear && course.getYearTaken()<=endyear) {
-				//String semesterByYear = Integer.toString(course.getYearTaken()) + "-" + Integer.toString(course.getSemesterCourseTaken());
 				String YearAndSemester = course.getCourseTakenKey();
 				if(semesterByYearAndSemester.containsKey(YearAndSemester)) { //if same YearAndSemester, pass
 					;
