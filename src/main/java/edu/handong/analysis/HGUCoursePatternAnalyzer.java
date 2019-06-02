@@ -165,22 +165,31 @@ public class HGUCoursePatternAnalyzer {
 						totalStudent++;
 						if(student.getNumOfStudentTakenCourse(semesterKey,coursecode)==true) {
 							NumOfStudentTakenCourse++;
-							courseName = student.getCourseName(coursecode);
 						}else ;
 					}else ;
+					//courseName = student.getCourseName(coursecode);
 				}
 				
-				if(NumOfStudentTakenCourse == 0) {
-					rate = 0;
-					Rate = String.format("%.1f", rate) + "%";
-					line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
-					//continue;
-				}else {
-					rate = (float) ((float)NumOfStudentTakenCourse / (float)totalStudent * 100.0);
-					Rate = String.format("%.1f", rate) + "%";
-					line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
+				//for getting course name
+				for(String studentId : sortedStudents.keySet()) {
+					Student student = sortedStudents.get(studentId);
+					if(student.getCourseName(coursecode)!=null)
+						courseName = student.getCourseName(coursecode);
 				}
-				linesToBeSaved.add(line);
+				
+				if(totalStudent !=0) {
+					if(NumOfStudentTakenCourse == 0) {
+						rate = 0;
+						Rate = String.format("%.1f", rate) + "%";
+						line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
+						//continue;
+					}else {
+						rate = (float) ((float)NumOfStudentTakenCourse / (float)totalStudent * 100.0);
+						Rate = String.format("%.1f", rate) + "%";
+						line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
+					}
+					linesToBeSaved.add(line);
+				}else ;
 			}
 		}
 		return linesToBeSaved;
