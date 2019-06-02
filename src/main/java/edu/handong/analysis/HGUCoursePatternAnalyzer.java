@@ -150,6 +150,7 @@ public class HGUCoursePatternAnalyzer {
 		int NumOfStudentTakenCourse = 0;
 		float rate;
 		String Rate;
+		String line;
 		
 		for(int year = startyear; year <= endyear; year++) {
 			for(int semester = 1; semester <= 4; semester++) {
@@ -170,13 +171,16 @@ public class HGUCoursePatternAnalyzer {
 				}
 				
 				if(NumOfStudentTakenCourse == 0) {
-					continue;
+					rate = 0;
+					Rate = String.format("%.1f", rate) + "%";
+					line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
+					//continue;
 				}else {
 					rate = (float) ((float)NumOfStudentTakenCourse / (float)totalStudent * 100.0);
 					Rate = String.format("%.1f", rate) + "%";
-					String line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
-					linesToBeSaved.add(line);
+					line = year +","+ semester +","+ coursecode +","+ courseName +","+ totalStudent +","+ NumOfStudentTakenCourse +","+Rate;
 				}
+				linesToBeSaved.add(line);
 			}
 		}
 		return linesToBeSaved;
